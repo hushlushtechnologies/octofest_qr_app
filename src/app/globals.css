@@ -1,26 +1,686 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* =========================================================
+   RAW BRAND PALETTE
+========================================================= */
+
+@theme {
+  --color-void-navy: #0a0e1a;
+  --color-deep-indigo: #131b2e;
+
+  --color-signal-blue: #3d7fff;
+
+  --color-amber-gold: #f4b740;
+  --color-warm-orange: #ff8a3d;
+
+  /* Octofest neon accents */
+  --color-neon-cyan: #00e5ff;
+  --color-neon-blue: #2979ff;
+  --color-neon-violet: #865cff;
+  --color-neon-purple: #b537ff;
+  --color-neon-pink: #f42bc7;
+
+  --color-mist: #edeff5;
+  --color-ink: #0f1424;
 }
+
+/* =========================================================
+   DARK THEME
+========================================================= */
+
+:root {
+  color-scheme: dark;
+
+  --background: var(--color-void-navy);
+
+  --surface: var(--color-deep-indigo);
+  --surface-elevated: #1a2338;
+  --surface-soft: #0f1626;
+
+  --foreground: #f5f7fb;
+
+  --text-secondary: #a9b2c8;
+  --text-muted: #6b7690;
+
+  --border: #232e48;
+  --border-strong: #34405e;
+
+  --accent: var(--color-signal-blue);
+  --accent-gold: var(--color-amber-gold);
+
+  --accent-cyan: var(--color-neon-cyan);
+  --accent-blue: var(--color-neon-blue);
+  --accent-violet: var(--color-neon-violet);
+  --accent-purple: var(--color-neon-purple);
+  --accent-pink: var(--color-neon-pink);
+
+  --success: #35d07f;
+  --warning: #f4b740;
+  --error: #ff5c7a;
+
+  --glass: rgba(19, 27, 46, 0.55);
+  --glass-strong: rgba(14, 20, 36, 0.78);
+
+  --overlay: rgba(6, 9, 16, 0.7);
+
+  --focus-ring: var(--color-neon-cyan);
+}
+
+/* =========================================================
+   LIGHT THEME
+========================================================= */
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --background: var(--color-mist);
+
+  --surface: #ffffff;
+  --surface-elevated: #ffffff;
+  --surface-soft: #e4e8f2;
+
+  --foreground: var(--color-ink);
+
+  --text-secondary: #4b5468;
+  --text-muted: #7b8398;
+
+  --border: #dbe0ec;
+  --border-strong: #c3cadc;
+
+  --accent: var(--color-signal-blue);
+  --accent-gold: #db9b22;
+
+  --accent-cyan: #00a9c7;
+  --accent-blue: #2563eb;
+  --accent-violet: #7050df;
+  --accent-purple: #9b35db;
+  --accent-pink: #db27af;
+
+  --success: #1f9d5c;
+  --warning: #c98a1f;
+  --error: #db3a5c;
+
+  --glass: rgba(255, 255, 255, 0.58);
+  --glass-strong: rgba(255, 255, 255, 0.82);
+
+  --overlay: rgba(15, 20, 36, 0.35);
+
+  --focus-ring: var(--color-signal-blue);
+}
+
+/* =========================================================
+   TAILWIND SEMANTIC BRIDGE
+========================================================= */
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-soft: var(--surface-soft);
+
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+
+  --color-accent: var(--accent);
+  --color-accent-gold: var(--accent-gold);
+
+  --color-accent-cyan: var(--accent-cyan);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-violet: var(--accent-violet);
+  --color-accent-purple: var(--accent-purple);
+  --color-accent-pink: var(--accent-pink);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+
+  --color-glass: var(--glass);
+
+  --font-display: var(--font-heading), ui-sans-serif, sans-serif;
+  --font-body: var(--font-body-loaded), ui-sans-serif, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+.text-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+
+  font-size: clamp(2.75rem, 1.8rem + 4.2vw, 5.5rem);
+
+  line-height: 0.98;
+  letter-spacing: -0.045em;
 }
 
+.text-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+
+  font-size: clamp(1.75rem, 1.4rem + 1.6vw, 2.5rem);
+
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.text-section {
+  font-family: var(--font-display);
+  font-weight: 600;
+
+  font-size: clamp(1.25rem, 1.1rem + 0.8vw, 1.5rem);
+
+  line-height: 1.2;
+}
+
+.text-body {
+  font-family: var(--font-body);
+  font-weight: 400;
+
+  font-size: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);
+
+  line-height: 1.6;
+}
+
+.text-caption {
+  font-family: var(--font-body);
+  font-weight: 500;
+
+  font-size: 0.8125rem;
+
+  line-height: 1.4;
+
+  color: var(--text-secondary);
+}
+
+.text-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+
+  font-size: 0.75rem;
+
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+.text-button {
+  font-family: var(--font-body);
+  font-weight: 600;
+
+  font-size: 0.9375rem;
+
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.text-stat {
+  font-family: var(--font-display);
+  font-weight: 700;
+
+  font-size: clamp(2.5rem, 2rem + 2.5vw, 4rem);
+
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+/* =========================================================
+   BASE
+========================================================= */
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+  font-family: var(--font-body);
+}
+
+body {
+  min-height: 100dvh;
+
+  overflow-x: hidden;
+
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
+}
+
+/* =========================================================
+   GLOBAL PAGE BACKGROUND
+========================================================= */
+
+.gradient-bg {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: -2;
+
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(
+      circle at 15% 20%,
+      color-mix(in srgb, var(--accent-purple) 18%, transparent),
+      transparent 48%
+    ),
+    radial-gradient(
+      circle at 85% 25%,
+      color-mix(in srgb, var(--accent-cyan) 13%, transparent),
+      transparent 48%
+    ),
+    radial-gradient(
+      circle at 60% 85%,
+      color-mix(in srgb, var(--accent-pink) 10%, transparent),
+      transparent 48%
+    );
+
+  background-size:
+    150% 150%,
+    160% 160%,
+    160% 160%;
+
+  animation: gradient-drift 24s ease-in-out infinite;
+
+  will-change: background-position;
+}
+
+@keyframes gradient-drift {
+  0%,
+  100% {
+    background-position:
+      0% 0%,
+      100% 0%,
+      50% 100%;
+  }
+
+  50% {
+    background-position:
+      70% 35%,
+      25% 60%,
+      85% 40%;
+  }
+}
+
+/* =========================================================
+   REUSABLE OCTOFEST GRADIENT
+========================================================= */
+
+.octo-gradient-text {
+  color: transparent;
+
+  background-image: linear-gradient(
+    90deg,
+    var(--accent-pink),
+    var(--accent-violet),
+    var(--accent-cyan)
+  );
+
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.octo-gradient-bg {
+  background-image: linear-gradient(
+    105deg,
+    var(--accent-pink),
+    var(--accent-violet),
+    var(--accent-cyan)
+  );
+}
+
+/* =========================================================
+   GLASS UI
+========================================================= */
+
+.octo-glass {
+  background: color-mix(in srgb, var(--glass-strong) 88%, transparent);
+
+  border: 1px solid color-mix(in srgb, var(--foreground) 10%, transparent);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 24px 70px rgba(0, 0, 0, 0.18);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* =========================================================
+   INTERACTIVE CARDS
+========================================================= */
+
+.octo-card {
+  position: relative;
+
+  overflow: hidden;
+
+  border: 1px solid color-mix(in srgb, var(--foreground) 8%, transparent);
+
+  background: color-mix(in srgb, var(--surface) 78%, transparent);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 18px 60px rgba(0, 0, 0, 0.12);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  transition:
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 400ms ease,
+    box-shadow 400ms ease;
+}
+
+.octo-card:hover {
+  transform: translateY(-6px);
+
+  border-color: color-mix(in srgb, var(--accent-cyan) 30%, var(--border));
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 24px 90px rgba(0, 0, 0, 0.22),
+    0 0 55px color-mix(in srgb, var(--accent-violet) 8%, transparent);
+}
+
+/* =========================================================
+   NEON BORDER EFFECT
+========================================================= */
+
+.octo-border {
+  position: relative;
+
+  isolation: isolate;
+}
+
+.octo-border::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -1px;
+
+  z-index: -1;
+
+  border-radius: inherit;
+
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--accent-pink) 55%, transparent),
+    transparent 35%,
+    transparent 65%,
+    color-mix(in srgb, var(--accent-cyan) 55%, transparent)
+  );
+
+  opacity: 0.35;
+
+  transition: opacity 400ms ease;
+}
+
+.octo-border:hover::before {
+  opacity: 0.85;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.octo-button {
+  position: relative;
+
+  isolation: isolate;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  transform: translateZ(0);
+
+  transition:
+    transform 250ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 300ms ease,
+    border-color 300ms ease,
+    background-color 300ms ease;
+}
+
+.octo-button:hover {
+  transform: translateY(-2px);
+}
+
+.octo-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* primary */
+
+.octo-button-primary {
+  color: #ffffff;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  background-image: linear-gradient(
+    105deg,
+    var(--accent-pink) 0%,
+    var(--accent-violet) 45%,
+    var(--accent-cyan) 100%
+  );
+
+  background-size: 180% 180%;
+
+  box-shadow:
+    0 12px 36px color-mix(in srgb, var(--accent-violet) 26%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+  animation: button-gradient-idle 7s ease infinite;
+}
+
+.octo-button-primary:hover {
+  box-shadow:
+    0 16px 48px color-mix(in srgb, var(--accent-cyan) 25%, transparent),
+    0 0 28px color-mix(in srgb, var(--accent-purple) 20%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* shine */
+
+.octo-button-primary::after {
+  content: "";
+
+  position: absolute;
+
+  top: -40%;
+  bottom: -40%;
+
+  left: -40%;
+
+  width: 30%;
+
+  z-index: -1;
+
+  transform: skewX(-22deg);
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.38),
+    transparent
+  );
+
+  transition: left 650ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.octo-button-primary:hover::after {
+  left: 125%;
+}
+
+/* secondary */
+
+.octo-button-secondary {
+  color: var(--foreground);
+
+  border: 1px solid color-mix(in srgb, var(--foreground) 13%, transparent);
+
+  background: color-mix(in srgb, var(--glass) 82%, transparent);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 12px 38px rgba(0, 0, 0, 0.08);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.octo-button-secondary:hover {
+  border-color: color-mix(in srgb, var(--accent-cyan) 38%, var(--border));
+
+  background: color-mix(in srgb, var(--accent-cyan) 7%, var(--glass));
+
+  box-shadow:
+    0 14px 45px color-mix(in srgb, var(--accent-cyan) 9%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* ghost */
+
+.octo-button-ghost {
+  color: var(--foreground);
+
+  background: transparent;
+
+  border: 1px solid transparent;
+}
+
+.octo-button-ghost:hover {
+  color: var(--accent-cyan);
+
+  background: color-mix(in srgb, var(--foreground) 5%, transparent);
+}
+
+@keyframes button-gradient-idle {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* =========================================================
+   CHIPS
+========================================================= */
+
+.octo-chip {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.45rem;
+
+  border: 1px solid color-mix(in srgb, var(--foreground) 9%, transparent);
+
+  background: color-mix(in srgb, var(--glass) 76%, transparent);
+
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.octo-hero-vignette {
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    transparent 26%,
+    color-mix(in srgb, var(--background) 16%, transparent) 55%,
+    var(--background) 100%
+  );
+}
+
+.octo-grid-overlay {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+
+  background-size: 50px 50px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 25%,
+    black 70%,
+    transparent
+  );
+}
+
+/* =========================================================
+   IMAGE CARDS
+========================================================= */
+
+.octo-image {
+  transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.group:hover .octo-image {
+  transform: scale(1.08);
+}
+
+/* =========================================================
+   SOFT PULSE
+========================================================= */
+
+.octo-live-dot {
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-cyan) 45%, transparent);
+
+  animation: live-pulse 2.4s ease-out infinite;
+}
+
+@keyframes live-pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-cyan) 45%, transparent);
+  }
+
+  70% {
+    box-shadow: 0 0 0 8px transparent;
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .gradient-bg,
+  .octo-button-primary,
+  .octo-live-dot {
+    animation: none;
+  }
+
+  .octo-card,
+  .octo-button,
+  .octo-image {
+    transition: none;
+  }
 }
