@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import type { Viewport } from "next";
 import { Bricolage_Grotesque, Manrope } from "next/font/google";
 import { AppShell } from "@/components/layout/AppShell";
 import { MotionProvider } from "@/components/motion/MotionProvider";
+import { QRContextProvider } from "@/components/providers/QRContentProvider";
+import { SplashScreen } from "@/components/splash/SplashScreen";
 import "./globals.css";
 
 const bricolageGrotesque = Bricolage_Grotesque({
@@ -17,8 +20,18 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "OctoLink — Scan. Explore. Connect.",
+  title: "OctoFest — Scan. Explore. Connect.",
   description: "The digital experience for Octofest.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover", // required for env(safe-area-inset-*) to resolve
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#0A0E1A" },
+    { media: "(prefers-color-scheme: light)", color: "#EDEFF5" },
+  ],
 };
 
 const themeInitScript = `
@@ -49,8 +62,11 @@ export default function RootLayout({
       </head>
       <body className="bg-background text-foreground font-body antialiased">
         <div className="gradient-bg" aria-hidden="true" />
+        <SplashScreen />
         <MotionProvider>
-          <AppShell>{children}</AppShell>
+          <QRContextProvider>
+            <AppShell>{children}</AppShell>
+          </QRContextProvider>
         </MotionProvider>
       </body>
     </html>

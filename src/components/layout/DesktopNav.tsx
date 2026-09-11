@@ -19,7 +19,7 @@ export function DesktopNav() {
             key={href}
             href={href}
             aria-current={isActive ? "page" : undefined}
-            className={`flex items-center gap-2 rounded-full px-4 py-2 text-xs transition-colors ${
+            className={`flex items-center gap-2 rounded-full px-4 py-2 text-button transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface ${
               isActive
                 ? " octo-button octo-button-primary text-ink"
                 : "text-text-secondary hover:text-foreground"
