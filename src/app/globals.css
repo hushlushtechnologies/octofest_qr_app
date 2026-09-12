@@ -5,8 +5,8 @@
 ========================================================= */
 
 @theme {
-  --color-void-navy: #0a0e1a;
-  --color-deep-indigo: #131b2e;
+  --color-void-navy: #060508;
+  --color-deep-indigo: #0f0b12;
 
   --color-signal-blue: #3d7fff;
 
@@ -34,16 +34,16 @@
   --background: var(--color-void-navy);
 
   --surface: var(--color-deep-indigo);
-  --surface-elevated: #1a2338;
-  --surface-soft: #0f1626;
+  --surface-elevated: #120e16;
+  --surface-soft: #211929;
 
-  --foreground: #f5f7fb;
+  --foreground: #f6f2fa;
 
-  --text-secondary: #a9b2c8;
-  --text-muted: #6b7690;
+  --text-secondary: #e1d9e7;
+  --text-muted: #7c7281;
 
-  --border: #232e48;
-  --border-strong: #34405e;
+  --border: #211929;
+  --border-strong: #211929;
 
   --accent: var(--color-signal-blue);
   --accent-gold: var(--color-amber-gold);
@@ -58,8 +58,8 @@
   --warning: #f4b740;
   --error: #ff5c7a;
 
-  --glass: rgba(19, 27, 46, 0.55);
-  --glass-strong: rgba(14, 20, 36, 0.78);
+  --glass: rgba(33, 25, 41, 0.55);
+  --glass-strong: rgba(17, 8, 21, 0.78);
 
   --overlay: rgba(6, 9, 16, 0.7);
 
@@ -397,6 +397,20 @@ body {
 }
 
 /* =========================================================
+   HIDE SCROLLBAR
+   Used for horizontal mobile discovery sections
+========================================================= */
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* =========================================================
    NEON BORDER EFFECT
 ========================================================= */
 
@@ -419,7 +433,7 @@ body {
 
   background: linear-gradient(
     135deg,
-    color-mix(in srgb, var(--accent-pink) 55%, transparent),
+    color-mix(in srgb, var(--accent-blue) 55%, transparent),
     transparent 35%,
     transparent 65%,
     color-mix(in srgb, var(--accent-cyan) 55%, transparent)

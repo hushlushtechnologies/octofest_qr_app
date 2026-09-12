@@ -22,11 +22,11 @@ function SceneFallback() {
     <div className="relative flex h-full w-full items-center justify-center overflow-hidden">
       <div className="pointer-events-none absolute h-[45%] w-[45%] rounded-full bg-accent-cyan/10 blur-[100px]" />
 
-      <div className="pointer-events-none absolute h-[35%] w-[35%] translate-x-20 translate-y-10 rounded-full bg-accent-pink/10 blur-[100px]" />
+      <div className="pointer-events-none absolute h-[40%] w-[40%] translate-x-20 translate-y-10 rounded-full bg-accent-pink/10 blur-[100px]" />
 
-      <div className="relative h-[55%] w-[55%] max-h-[500px] max-w-[500px]">
+      <div className="relative h-[70%] w-[70%] max-h-200 max-w-200">
         <Image
-          src="/Octofest-logo.png"
+          src="/Octo-Logo.png"
           alt="Octofest"
           fill
           priority
@@ -51,7 +51,7 @@ export function ThreeShowcase() {
     return <SceneFallback />;
   }
 
-  const color = theme === "light" ? "#00B9DC" : "#00E5FF";
+  const color = theme === "light" ? "#3D7FFF" : "#5B93FF";
 
   return (
     <Suspense fallback={<SceneFallback />}>

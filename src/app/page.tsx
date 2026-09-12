@@ -4,7 +4,7 @@ import { HeroSection } from "@/components/home/HeroSection";
 import { OpportunitiesSection } from "@/components/home/OpportunitiesSection";
 import { PropertyMomentSection } from "@/components/home/PropertyMomentSection";
 import { JourneySection } from "@/components/home/JourneySection";
-// import { OpportunityDeck } from "@/components/home/opportunity/OpportunityDeck";
+
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 
 export default function Home() {
@@ -28,7 +28,6 @@ export default function Home() {
         <PropertyMomentSection />
 
         <JourneySection />
-        {/* <OpportunityDeck /> */}
 
         <FinalCTASection />
       </div>

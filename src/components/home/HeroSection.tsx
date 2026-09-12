@@ -7,7 +7,7 @@ import { Reveal } from "@/components/motion/Reveal";
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-[100svh] w-full items-end overflow-hidden">
+    <section className="relative flex min-h-[70svh] w-full items-end overflow-hidden">
       {/* Subtle vignette */}
       <div className="octo-hero-vignette pointer-events-none absolute inset-0 z-0" />
 
@@ -15,12 +15,12 @@ export function HeroSection() {
       <div className="octo-grid-overlay pointer-events-none absolute inset-0 z-0 opacity-25" />
 
       {/* Neon atmosphere */}
-      <div className="pointer-events-none absolute -left-64 top-[15%] h-[520px] w-[520px] rounded-full bg-accent-pink/10 blur-[150px]" />
+      <div className="pointer-events-none absolute -left-64 top-[15%] h-130 w-130 rounded-full bg-accent-pink/10 blur-[150px]" />
 
-      <div className="pointer-events-none absolute -right-64 top-[24%] h-[520px] w-[520px] rounded-full bg-accent-cyan/10 blur-[150px]" />
+      <div className="pointer-events-none absolute -right-64 top-[24%] h-130 w-130 rounded-full bg-accent-cyan/10 blur-[150px]" />
 
       {/* Bottom fade */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[260px] bg-gradient-to-t from-background via-background/60 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-65 bg-linear-to-t from-background via-background/40 to-transparent z-0" />
 
       {/* Buttons */}
       <Container className="relative z-20 flex w-full justify-center pb-32">
@@ -33,13 +33,13 @@ export function HeroSection() {
                 octo-button-primary
                 group
                 inline-flex
-                h-[54px]
-                min-w-[215px]
+                h-13.5
+                min-w-53.75
                 items-center
                 justify-center
                 gap-2
                 px-7
-                text-button
+                text-sm
                 font-semibold
               "
             >
@@ -54,13 +54,13 @@ export function HeroSection() {
                 octo-button-secondary
                 group
                 inline-flex
-                h-[54px]
-                min-w-[190px]
+                h-13.5
+                min-w-47.5
                 items-center
                 justify-center
                 gap-2
                 px-7
-                text-button
+                text-sm
                 font-semibold
               "
             >

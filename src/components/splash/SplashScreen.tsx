@@ -23,13 +23,14 @@ export function SplashScreen() {
     <AnimatePresence>
       {visible && (
         <motion.div
+          aria-hidden="true"
           className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-4 bg-background"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4, ease: easing.standard }}
         >
           <motion.img
-            src="/Octofest-Logo.png"
+            src="/Octo-Logo.png"
             alt="Octofest"
             width={100}
             height={100}

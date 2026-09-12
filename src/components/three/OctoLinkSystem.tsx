@@ -7,7 +7,6 @@
 // import * as THREE from "three";
 
 // interface NodeConfig {
-//   color: string;
 //   radius: number;
 //   speed: number;
 //   phase: number;
@@ -18,28 +17,17 @@
 // // evenly spaced around the core (2π/3 apart) so they read as three
 // // distinct, balanced connections, not clustered.
 // const nodeConfigs: NodeConfig[] = [
-//   { color: "#3D7FFF", radius: 2.1, speed: 0.35, phase: 0, yAmplitude: 0.25 },
-//   {
-//     color: "#C7CEDB",
-//     radius: 2.1,
-//     speed: 0.35,
-//     phase: (Math.PI * 2) / 3,
-//     yAmplitude: 0.25,
-//   },
-//   {
-//     color: "#9D7BFF",
-//     radius: 2.1,
-//     speed: 0.35,
-//     phase: (Math.PI * 4) / 3,
-//     yAmplitude: 0.25,
-//   },
+//   { radius: 2.1, speed: 0.35, phase: 0, yAmplitude: 0.25 },
+//   { radius: 2.1, speed: 0.35, phase: (Math.PI * 2) / 3, yAmplitude: 0.25 },
+//   { radius: 2.1, speed: 0.35, phase: (Math.PI * 4) / 3, yAmplitude: 0.25 },
 // ];
 
 // interface OctoLinkSystemProps {
 //   coreColor: string;
+//   nodeColors: [string, string, string];
 // }
 
-// export function OctoLinkSystem({ coreColor }: OctoLinkSystemProps) {
+// export function OctoLinkSystem({ coreColor, nodeColors }: OctoLinkSystemProps) {
 //   const coreRef = useRef<THREE.Mesh>(null);
 //   const nodeRefs = useRef<(THREE.Mesh | null)[]>([]);
 //   const lineRefs = useRef<(THREE.Line | null)[]>([]);
@@ -97,41 +85,29 @@
 //         />
 //       </mesh>
 
-//       {nodeConfigs.map((config, i) => (
-//         <group key={config.color}>
-//           <mesh
-//             ref={(el) => {
-//               nodeRefs.current[i] = el;
-//             }}
-//           >
-//             <icosahedronGeometry args={[0.22, 0]} />
-//             <meshStandardMaterial
-//               color={config.color}
-//               roughness={0.3}
-//               metalness={0.5}
-//             />
-//           </mesh>
-//           <line
-//             ref={(el) => {
-//               lineRefs.current[i] = el;
-//             }}
-//           >
-//             <bufferGeometry>
-//               <bufferAttribute
-//                 attach="attributes-position"
-//                 count={2}
-//                 array={new Float32Array(6)}
-//                 itemSize={3}
-//               />
-//             </bufferGeometry>
-//             <lineBasicMaterial
-//               color={config.color}
-//               transparent
-//               opacity={0.35}
-//             />
-//           </line>
-//         </group>
-//       ))}
+//   {nodeConfigs.map((config, i) => (
+//     <group key={i}>
+//       <mesh ref={(el) => { nodeRefs.current[i] = el; }}>
+//         <icosahedronGeometry args={[0.22, 0]} />
+//         <meshStandardMaterial
+//           color={nodeColors[i]}
+//           roughness={0.3}
+//           metalness={0.5}
+//         />
+//       </mesh>
+//       <line ref={(el) => { lineRefs.current[i] = el; }}>
+//         <bufferGeometry>
+//           <bufferAttribute
+//             attach="attributes-position"
+//             count={2}
+//             array={new Float32Array(6)}
+//             itemSize={3}
+//           />
+//         </bufferGeometry>
+//         <lineBasicMaterial color={nodeColors[i]} transparent opacity={0.35} />
+//       </line>
+//     </group>
+//   ))}
 //     </group>
 //   );
 // }

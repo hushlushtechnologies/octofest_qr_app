@@ -10,7 +10,7 @@ interface LogoProps {
 }
 
 export function Logo({ name, width, height, className = "" }: LogoProps) {
-  const src = `/Octofest-Logo.png`;
+  const src = `/Octo-Logo.png`;
 
   return (
     // Plain <img>, not next/image: these are small local SVGs with no

@@ -33,7 +33,7 @@ function OctofestLogo({ color = "#00E5FF" }: LogoProps) {
 
   const shineRef = useRef<THREE.ShaderMaterial>(null);
 
-  const texture = useTexture("/Octofest-Logo.png");
+  const texture = useTexture("/Octo-Logo.png");
 
   const { viewport, pointer } = useThree();
 

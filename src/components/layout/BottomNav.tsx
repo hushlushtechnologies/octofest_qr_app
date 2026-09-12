@@ -10,7 +10,7 @@ export function BottomNav() {
   return (
     <nav
       aria-label="Primary"
-      className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-surface/90 backdrop-blur-xl md:hidden"
+      className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-card/90 backdrop-blur-xl md:hidden"
       style={{
         paddingBottom: "env(safe-area-inset-bottom)",
         paddingLeft: "env(safe-area-inset-left)",
@@ -29,12 +29,12 @@ export function BottomNav() {
               >
                 <Icon
                   className={`h-5 w-5 ${
-                    isActive ? "text-accent" : "text-text-muted"
+                    isActive ? "text-cyan-400" : "text-text-muted"
                   }`}
                 />
                 <span
                   className={`whitespace-nowrap text-label ${
-                    isActive ? "text-accent" : "text-text-muted"
+                    isActive ? "text-cyan-400" : "text-text-muted"
                   }`}
                 >
                   {label}
