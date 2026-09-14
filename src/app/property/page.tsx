@@ -1,14 +1,45 @@
+import { PropertyHero } from "@/components/property/PropertyHero";
+import { PropertyLocalNav } from "@/components/property/PropertyLocalNav";
+import { InvestmentSnapshot } from "@/components/property/InvestmentSnapshot";
+import { LocationExperience } from "@/components/property/LocationExperience";
+import { OpportunitiesSection } from "@/components/home/OpportunitiesSection";
+import { StickyPropertyCTA } from "@/components/property/StickyPropertyCTA";
+import { PropertyInterestProvider } from "@/components/providers/PropertyInterestProvider";
+import { Divider } from "@/components/ui/Divider";
 import { Container } from "@/components/layout/Container";
-import { ScanContextNote } from "@/components/scan/ScanContextNote";
+import { JourneySection } from "@/components/home/JourneySection";
+
+import { FinalCTASection } from "@/components/home/FinalCTASection";
 
 export default function PropertyPage() {
   return (
-    <Container className="flex flex-col gap-4 py-12">
-      <ScanContextNote />
-      <h1 className="text-title text-foreground">Property</h1>
-      <p className="text-body text-text-secondary">
-        Placeholder — built in Sprint 3.
-      </p>
-    </Container>
+    <PropertyInterestProvider>
+      <div className="flex flex-col">
+        <PropertyHero />
+        <PropertyLocalNav />
+        <Container>
+          <Divider />
+        </Container>
+        <InvestmentSnapshot />
+        <Container>
+          <Divider />
+        </Container>
+        <LocationExperience />
+        <Container>
+          <Divider />
+        </Container>
+        <OpportunitiesSection />
+
+        <Container>
+          <Divider />
+        </Container>
+        <JourneySection />
+        <Container>
+          <Divider />
+        </Container>
+        <FinalCTASection />
+      </div>
+      <StickyPropertyCTA />
+    </PropertyInterestProvider>
   );
 }

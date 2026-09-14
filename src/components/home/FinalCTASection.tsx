@@ -9,7 +9,7 @@ import { Reveal } from "@/components/motion/Reveal";
 export function FinalCTASection() {
   return (
     <section
-      id="connect"
+      id="interest"
       className="relative scroll-mt-20 overflow-hidden pb-20 pt-10 md:pb-28 md:pt-16"
     >
       {/* =====================================================

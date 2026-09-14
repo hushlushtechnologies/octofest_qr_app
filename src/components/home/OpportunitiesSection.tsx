@@ -152,10 +152,7 @@ export function OpportunitiesSection() {
   };
 
   return (
-    <section
-      id="opportunities"
-      className="relative scroll-mt-20  py-16 md:py-24"
-    >
+    <section id="opportunity" className="relative scroll-mt-20  py-16 md:py-24">
       {/* =====================================================
           ATMOSPHERE
       ====================================================== */}
