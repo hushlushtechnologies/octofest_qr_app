@@ -1,0 +1,8 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#0F1626" />
+  <ellipse cx="400" cy="380" rx="260" ry="60" fill="#1A2338" />
+  <rect x="180" y="260" width="440" height="120" rx="24" fill="none" stroke="#C7CEDB" stroke-width="2" />
+  <circle cx="260" cy="390" r="45" fill="none" stroke="#C7CEDB" stroke-width="2" />
+  <circle cx="540" cy="390" r="45" fill="none" stroke="#C7CEDB" stroke-width="2" />
+  <text x="400" y="560" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#6B7690">Placeholder — Sample GT Coupe</text>
+</svg>

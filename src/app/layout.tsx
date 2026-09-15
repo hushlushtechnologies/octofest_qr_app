@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { Viewport } from "next";
+
 import { Bricolage_Grotesque, Manrope } from "next/font/google";
 import { AppShell } from "@/components/layout/AppShell";
 import { MotionProvider } from "@/components/motion/MotionProvider";
@@ -34,18 +35,6 @@ export const viewport: Viewport = {
   ],
 };
 
-const themeInitScript = `
-(function () {
-  try {
-    var stored = localStorage.getItem('octolink-theme');
-    var theme = stored === 'light' || stored === 'dark'
-      ? stored
-      : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-    document.documentElement.setAttribute('data-theme', theme);
-  } catch (e) {}
-})();
-`;
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -54,12 +43,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-theme="dark"
       suppressHydrationWarning
       className={`${bricolageGrotesque.variable} ${manrope.variable}`}
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-      </head>
       <body className="bg-background text-foreground font-body antialiased">
         <div className="gradient-bg" aria-hidden="true" />
         <SplashScreen />

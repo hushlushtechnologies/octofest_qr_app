@@ -1,14 +1,31 @@
 import { Container } from "@/components/layout/Container";
-import { ScanContextNote } from "@/components/scan/ScanContextNote";
+import { CarsHero } from "@/components/cars/CarsHero";
+import { CarsDeck } from "@/components/cars/CarsDeck";
+import { OpportunitiesSection } from "@/components/home/OpportunitiesSection";
+import { JourneySection } from "@/components/home/JourneySection";
+import { FinalCTASection } from "@/components/home/FinalCTASection";
+import { Divider } from "@/components/ui/Divider";
 
 export default function CarsPage() {
   return (
-    <Container className="flex flex-col gap-4 py-12">
-      <ScanContextNote />
-      <h1 className="text-title text-foreground">Cars</h1>
-      <p className="text-body text-text-secondary">
-        Placeholder — built in Sprint 4.
-      </p>
-    </Container>
+    <div className="flex flex-col">
+      <CarsHero />
+      <Container className="pb-12">
+        <CarsDeck />
+      </Container>
+      <Container>
+        <Divider />
+      </Container>
+      <OpportunitiesSection />
+
+      <Container>
+        <Divider />
+      </Container>
+      <JourneySection />
+      <Container>
+        <Divider />
+      </Container>
+      <FinalCTASection />
+    </div>
   );
 }

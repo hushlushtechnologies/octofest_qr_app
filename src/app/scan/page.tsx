@@ -1,7 +1,12 @@
 import { ScanRedirect } from "@/components/scan/ScanRedirect";
 
 interface ScanPageProps {
-  searchParams: Promise<{ event?: string; type?: string; source?: string }>;
+  searchParams: Promise<{
+    event?: string;
+    type?: string;
+    source?: string;
+    item?: string;
+  }>;
 }
 
 export default async function ScanPage({ searchParams }: ScanPageProps) {
@@ -12,6 +17,7 @@ export default async function ScanPage({ searchParams }: ScanPageProps) {
       event={params.event ?? null}
       type={params.type ?? null}
       source={params.source ?? null}
+      item={params.item ?? null}
     />
   );
 }

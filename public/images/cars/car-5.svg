@@ -1,0 +1,8 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#0F1626" />
+  <ellipse cx="400" cy="390" rx="290" ry="62" fill="#1A2338" />
+  <rect x="150" y="225" width="500" height="165" rx="20" fill="none" stroke="#C7CEDB" stroke-width="2" />
+  <circle cx="255" cy="400" r="50" fill="none" stroke="#C7CEDB" stroke-width="2" />
+  <circle cx="545" cy="400" r="50" fill="none" stroke="#C7CEDB" stroke-width="2" />
+  <text x="400" y="560" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#6B7690">Placeholder — Sample Super SUV</text>
+</svg>

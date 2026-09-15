@@ -8,15 +8,16 @@ interface ScanRedirectProps {
   event: string | null;
   type: string | null;
   source: string | null;
+  item: string | null;
 }
 
-export function ScanRedirect({ event, type, source }: ScanRedirectProps) {
+export function ScanRedirect({ event, type, source, item }: ScanRedirectProps) {
   const router = useRouter();
 
   useEffect(() => {
-    storeQRContext({ event, type, source });
-    router.replace(resolveDestination(type));
-  }, [event, type, source, router]);
+    storeQRContext({ event, type, source, item });
+    router.replace(resolveDestination(type, item));
+  }, [event, type, source, item, router]);
 
   return (
     <div className="flex min-h-dvh items-center justify-center">

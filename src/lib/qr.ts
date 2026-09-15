@@ -22,13 +22,20 @@ export function storeQRContext(data: QRContextData) {
   }
 }
 
-// Maps a QR's `type` param to the actual destination route.
-export function resolveDestination(type: string | null): string {
+// Maps a QR's `type` (+ optional `item`) to the actual destination
+// route. A car-specific QR (`type=cars&item=sample-gt-coupe`) now
+// resolves straight to that car's detail page instead of the
+// collection — the more useful landing spot when a QR is physically
+// posted beside one specific vehicle.
+export function resolveDestination(
+  type: string | null,
+  item: string | null,
+): string {
   switch (type) {
     case "property":
       return "/property";
     case "cars":
-      return "/cars";
+      return item ? `/cars/${item}` : "/cars";
     case "hushlush":
       return "/hushlush";
     default:

@@ -531,6 +531,33 @@ mx-auto
                 blur-[110px]
               "
             />
+            <motion.div
+              aria-hidden="true"
+              className="
+          pointer-events-none
+          absolute
+          left-1/2
+          top-[18%]
+          -z-10
+
+          hidden
+          -translate-x-1/2
+
+          whitespace-nowrap
+
+          text-[10rem]
+          font-black
+          leading-none
+          tracking-[-0.08em]
+
+          text-foreground/[0.025]
+
+          lg:block
+          xl:text-[13rem]
+        "
+            >
+              AFAQ
+            </motion.div>
 
             {/* ---------------------------------------------
                 3D STAGE

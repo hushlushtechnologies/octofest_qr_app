@@ -10,3 +10,15 @@ export function getPropertyWhatsAppLink(): string {
   );
   return `https://wa.me/${PLACEHOLDER_NUMBER}?text=${message}`;
 }
+
+// Separate placeholder number — Sprint 6 replaces this with the real
+// Optimus Megatron Cars WhatsApp number, per the brief's requirement
+// for a distinct number per category.
+const CARS_PLACEHOLDER_NUMBER = "971000000001";
+
+export function getCarWhatsAppLink(carName: string): string {
+  const message = encodeURIComponent(
+    `Hi, I scanned the OctoLink QR at Octofest and I'm interested in ${carName}.`,
+  );
+  return `https://wa.me/${CARS_PLACEHOLDER_NUMBER}?text=${message}`;
+}

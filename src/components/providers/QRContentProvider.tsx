@@ -10,16 +10,18 @@ import {
 import { getStoredQRContext } from "@/lib/qr";
 import type { QRContextData } from "@/types/qr";
 
-const defaultContext: QRContextData = { event: null, type: null, source: null };
+const defaultContext: QRContextData = {
+  event: null,
+  type: null,
+  source: null,
+  item: null,
+};
 
 const QRContext = createContext<QRContextData>(defaultContext);
 
 export function QRContextProvider({ children }: { children: ReactNode }) {
   const [context, setContext] = useState<QRContextData>(defaultContext);
 
-  // Reads sessionStorage on mount only — this is why it starts as
-  // `defaultContext` (matches server render) and updates after,
-  // avoiding a hydration mismatch.
   useEffect(() => {
     const stored = getStoredQRContext();
     if (stored) setContext(stored);

@@ -3,13 +3,14 @@
 import Image from "next/image";
 
 import { Container } from "@/components/layout/Container";
+
 import { Stagger, StaggerItem } from "@/components/motion/Stagger";
 
 import { propertyGallery } from "@/data/property";
 
 export function LocationExperience() {
   return (
-    <section id="gallery" className="relative overflow-hidden py-12 md:py-20">
+    <section id="location" className="relative overflow-hidden py-12 md:py-20">
       {/* =====================================================
           BACKGROUND ATMOSPHERE
       ====================================================== */}
@@ -38,7 +39,7 @@ export function LocationExperience() {
             md:hidden
           "
         >
-          {propertyGallery.map((image, index) => (
+          {propertyGallery.map((image) => (
             <StaggerItem
               key={image.src}
               className="
@@ -52,14 +53,15 @@ export function LocationExperience() {
               <GalleryImage
                 src={image.src}
                 alt={image.alt}
-                priority={index === 0}
                 className="h-[420px]"
               />
             </StaggerItem>
           ))}
         </Stagger>
 
-        {/* Mobile indicators */}
+        {/* =====================================================
+            MOBILE INDICATOR
+        ====================================================== */}
 
         <div className="mt-2 flex items-center justify-center gap-1.5 md:hidden">
           {propertyGallery.map((_, index) => (
@@ -80,7 +82,7 @@ export function LocationExperience() {
         </div>
 
         {/* =====================================================
-            DESKTOP EDITORIAL GALLERY
+            DESKTOP GALLERY
         ====================================================== */}
 
         <Stagger
@@ -99,7 +101,6 @@ export function LocationExperience() {
               <GalleryImage
                 src={propertyGallery[0].src}
                 alt={propertyGallery[0].alt}
-                priority
                 className="h-[430px] lg:h-[520px]"
               />
             </StaggerItem>
@@ -154,12 +155,10 @@ function GalleryImage({
   src,
   alt,
   className = "",
-  priority = false,
 }: {
   src: string;
   alt: string;
   className?: string;
-  priority?: boolean;
 }) {
   return (
     <div
@@ -167,6 +166,7 @@ function GalleryImage({
         group
         relative
         overflow-hidden
+
         rounded-[26px]
 
         border
@@ -183,12 +183,8 @@ function GalleryImage({
         src={src}
         alt={alt}
         fill
-        priority={priority}
-        sizes="
-          (max-width: 768px) 88vw,
-          (max-width: 1200px) 60vw,
-          700px
-        "
+        loading="lazy"
+        sizes="(max-width: 768px) 88vw, (max-width: 1200px) 60vw, 700px"
         className="
           object-cover
 
@@ -208,7 +204,7 @@ function GalleryImage({
           absolute
           inset-0
 
-          bg-gradient-to-t
+          bg-linear-to-t
           from-black/25
           via-transparent
           to-black/5
@@ -220,7 +216,7 @@ function GalleryImage({
         "
       />
 
-      {/* Octofest color reflection */}
+      {/* Color reflection */}
 
       <div
         className="
@@ -228,7 +224,7 @@ function GalleryImage({
           absolute
           inset-0
 
-          bg-gradient-to-br
+          bg-linear-to-br
           from-accent-purple/0
           via-transparent
           to-accent-cyan/0
@@ -241,7 +237,7 @@ function GalleryImage({
         "
       />
 
-      {/* Glass shine */}
+      {/* Shine */}
 
       <div
         className="
@@ -255,7 +251,7 @@ function GalleryImage({
 
           rotate-[18deg]
 
-          bg-gradient-to-r
+          bg-linear-to-r
           from-transparent
           via-white/10
           to-transparent
